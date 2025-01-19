@@ -28,5 +28,10 @@
 				_cache[key] = value;
 			}
 		}
+
+		public void PurgeCache()
+		{
+			_cache = new Dictionary<string, T>();
+		}
 	}
 }
