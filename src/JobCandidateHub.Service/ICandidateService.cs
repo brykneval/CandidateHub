@@ -5,6 +5,6 @@ namespace JobCandidateHub.Service
 {
 	public interface ICandidateService
 	{
-		Task<EnumHelpers.EOpResult> AddOrUpdateCandidate(Candidate candidate);
+		Task<EnumHelpers.EOpResult> AddOrUpdateCandidateAsync(Candidate candidate);
 	}
 }
