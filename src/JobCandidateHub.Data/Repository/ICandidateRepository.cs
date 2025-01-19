@@ -5,8 +5,8 @@ namespace JobCandidateHub.Data.Repository
 {
 	public interface ICandidateRepository
 	{
-		Task<EnumHelpers.EOpResult> SaveCandidate(Candidate candidate);
-		Task<EnumHelpers.EOpResult> UpdateCandidate(Candidate candidate);
+		Task<EnumHelpers.EOpResult> SaveCandidateAsync(Candidate candidate);
+		Task<EnumHelpers.EOpResult> UpdateCandidateAsync(Candidate candidate);
 		Task<Candidate?> GetCandidateAsync(string email);
 	}
 }

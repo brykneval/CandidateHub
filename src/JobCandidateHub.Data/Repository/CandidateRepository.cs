@@ -12,14 +12,14 @@ namespace JobCandidateHub.Data.Repository
 			_context = context;
 		}
 
-		public async Task<EnumHelpers.EOpResult> SaveCandidate(Candidate candidate)
+		public async Task<EnumHelpers.EOpResult> SaveCandidateAsync(Candidate candidate)
 		{
 			await _context.AddAsync(candidate);
 			var isSuccess = await SaveAsync();
 			return isSuccess ? EnumHelpers.EOpResult.Added : EnumHelpers.EOpResult.Failed;
 		}
 
-		public async Task<EnumHelpers.EOpResult> UpdateCandidate(Candidate candidate)
+		public async Task<EnumHelpers.EOpResult> UpdateCandidateAsync(Candidate candidate)
 		{
 			_context.Update(candidate);
 			var isSuccess = await SaveAsync();
