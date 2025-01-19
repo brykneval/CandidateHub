@@ -1,5 +1,14 @@
+using JobCandidateHub.Data;
+using JobCandidateHub.Data.Repository;
+using JobCandidateHub.Service;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddDbContext<JobCandidateHubContext>(options =>
+	options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
+builder.Services.AddScoped<ICandidateRepository, CandidateRepository>();
+builder.Services.AddScoped<ICandidateService, CandidateService>();
 // Add services to the container.
 
 builder.Services.AddControllers();
@@ -21,5 +30,13 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+
+using (var scope = app.Services.CreateScope())
+{
+	var services = scope.ServiceProvider;
+
+	var context = services.GetRequiredService<JobCandidateHubContext>();
+	context.Database.Migrate();
+}
 
 app.Run();
