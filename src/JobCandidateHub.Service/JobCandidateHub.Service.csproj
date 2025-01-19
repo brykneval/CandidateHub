@@ -6,4 +6,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\JobCandidateHub.Cache\JobCandidateHub.Cache.csproj" />
+    <ProjectReference Include="..\JobCandidateHub.Data\JobCandidateHub.Data.csproj" />
+  </ItemGroup>
+
 </Project>
